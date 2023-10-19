@@ -1,6 +1,8 @@
 # Formulario-nutri
 Necesito que el codigo en python que suba sea capaz de ponerlo en un formulario en linea que puedan completar los pacientes
-def calcular_metabolismo_basal(sexo, edad, peso, altura):
+
+
+    def calcular_metabolismo_basal(sexo, edad, peso, altura):
     if sexo.lower() == 'hombre':
         BMR = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * edad)
     elif sexo.lower() == 'mujer':
@@ -10,7 +12,7 @@ def calcular_metabolismo_basal(sexo, edad, peso, altura):
         print("Por favor, introduce 'hombre' o 'mujer' para el sexo.")
     return BMR
 
-def clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura):
+    def clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura):
     
     rangos_peso_hombre = {
         150: {'mediana': (52, 58), 'grande': (56, 62)},
@@ -50,27 +52,27 @@ def clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura):
                         return clasificacion + " (dentro de los parámetros)"
                 return "Fuera de los parámetros"
             
-def calcular_imc(peso, altura):
+    def calcular_imc(peso, altura):
     altura_m = altura / 100  
     imc = peso / (altura_m ** 2)
     return imc
 
-peso = float(input("Ingresa tu peso en kg: "))
-altura = float(input("Ingresa tu altura en cm: "))
-sexo = input("Introduce tu sexo (hombre/mujer): ")
-edad = int(input("Introduce tu edad en años: "))
-estructura = input("Introduce tu estructura corporal (mediana/grande): ")
+    peso = float(input("Ingresa tu peso en kg: "))
+    altura = float(input("Ingresa tu altura en cm: "))
+    sexo = input("Introduce tu sexo (hombre/mujer): ")
+    edad = int(input("Introduce tu edad en años: "))
+    estructura = input("Introduce tu estructura corporal (mediana/grande): ")
 
-imc = calcular_imc(peso, altura)
-BMR = calcular_metabolismo_basal(sexo, edad, peso, altura)
-clasificacion = clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura)
+    imc = calcular_imc(peso, altura)
+    BMR = calcular_metabolismo_basal(sexo, edad, peso, altura)
+    clasificacion = clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura)
 
-if BMR:
+    if BMR:
     print(f"Tu metabolismo basal es {BMR} calorías por día.")
-iclasificacion = clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura)
+    iclasificacion = clasificar_segun_tablas_metropolitan(sexo, peso, altura, estructura)
 
-if clasificacion:
+    if clasificacion:
     print(f"Tu clasificación según las tablas de Metropolitan es: {clasificacion}.")
     
-if imc:
+    if imc:
     print(f"Tu IMC es: {imc}.")
